@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className="overflow-y-scroll bg-zinc-900">
+      <body>
         {children}
       </body>
     </html>
