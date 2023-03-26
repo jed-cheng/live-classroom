@@ -7,7 +7,10 @@ export default function AuthLayout({
   children: React.ReactNode;
 }){
   return (
-    <>
+    <div>
+      <h1>
+        welcome aborad
+      </h1>
       <p>
         <Link href='./auth/login'>log in</Link>
       </p>
@@ -17,7 +20,7 @@ export default function AuthLayout({
       <div>
         {children}
       </div>
-    </>
+    </div>
 
   )
 }

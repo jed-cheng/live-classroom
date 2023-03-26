@@ -14,7 +14,7 @@ export default function HomeLayout({
         <Link href= './home/courses'>courses</Link>      
       </p>
       <p>
-        <Link href= './home/tasks'>tasks</Link>      
+        <Link href= './home/assignments'>assignments</Link>      
       </p>
       <p>
         <Link href= './home/settings'>settings</Link>      

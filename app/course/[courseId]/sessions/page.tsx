@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Lives() {
+export default function Sessions() {
   return (
     <div>Lives</div>
   )
