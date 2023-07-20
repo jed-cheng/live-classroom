@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,3 +6,54 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  passwd  String   
+  role    Role
+  joinedCourse  Course[] @relation("JoinedCourse")
+  adminedCourse Course[] @relation("AdminedCourse")
+  ownedCourse Course[]   @relation("OwnedCourse")
+}
+
+
+model Course {
+  id            Int           @id @default(autoincrement())
+  name          String
+  description   String?
+  participants  User[]        @relation("JoinedCourse")
+  admins        User[]        @relation("AdminedCourse")
+  owner         User          @relation("OwnedCourse", fields: [ownerId], references: [id])
+  ownerId       Int 
+  classroom     Classroom?     @relation("Classroom")
+  // sessions      Session[]     @relation("Session")
+  assignments   Assignment[]  @relation("Assignment")
+}
+
+model Classroom {
+  id            Int           @id @default(autoincrement())
+  course        Course        @relation("Classroom", fields: [courseId], references: [id])
+  courseId      Int           @unique
+}
+model Session {
+  id      Int      @id @default(autoincrement())
+}
+
+model Assignment {
+  id      Int      @id @default(autoincrement())
+  course  Course   @relation("Assignment", fields: [courseId], references: [id])
+  courseId Int
+
+}
+
+enum Role {
+  TEACHER
+  STUDENT
+  ADMIN
+}
+
+model Message {
+  id      Int      @id @default(autoincrement())
+}
+
