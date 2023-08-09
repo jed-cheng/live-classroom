@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function Courses() {
+export default function CoursePage() {
   return (
     <div>
       <button>join course</button>

@@ -6,13 +6,13 @@ export default function Course({params}:{params:{courseId:string}}) {
     <div>
       <p>course name {params.courseId}</p>
       <p>
-        <Link href='./course/id/lives'>lives</Link>
+        <Link href='./course/id/session'>lives</Link>
       </p>
       <p>
-        <Link href='./course/id/tasks'>tasks</Link>
+        <Link href='./course/id/task'>tasks</Link>
       </p>
       <p>
-        <Link href='./course/id/participants'>participants</Link>
+        <Link href='./course/id/participant'>participant</Link>
       </p>
     </div>
   )
